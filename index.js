@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 app.all('/', (req, res) => {
-   console.log("Just got a request!", req.params)
-    res.send('Yo!')
+   const parsedUrl = url.parse(req.url);
+   const query = querystring.parse(parsedUrl.query);
+   console.log('request url params', JSON.stringify(query));
+   res.send('Yo!')
 })
 app.listen(process.env.PORT || 3000)
