@@ -9,6 +9,12 @@ app.all('/event1', (req, res) => {
    console.log('request url params', query);
    res.send('Yo!');
 })
+app.all('/contentViewed', (req, res) => {
+   const parsedUrl = url.parse(req.url);
+   const query = querystring.parse(parsedUrl.query);
+   console.log('request url params', query);
+   res.send('Yo!');
+})
 app.all('/', (req, res) => {
    console.log('yeet');
    res.send('Yo!');
